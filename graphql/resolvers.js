@@ -1,4 +1,6 @@
 const Event = require('../models/events');
+const User = require('../models/user');
+const bcrypt = require('bcryptjs')
 
 const resolvers = {
     Query: {
@@ -35,16 +37,16 @@ const resolvers = {
                 });
         },
         createUser: (_, {userInput})  => {
-            return User.findOne({ email: args.userInput.email })
+            return User.findOne({ email: userInput.email })
             .then(user => {
                 if (user){
                     throw new Error('User exists already');
                 }
-                return bcrypt.hash(args.userInput.password, 12);
+                return bcrypt.hash(userInput.password, 12);
             })
             .then(hashedPass => {
                 const user = new User({
-                    email: args.userInput.email,
+                    email: userInput.email,
                     password: hashedPass
                 });
                 return user.save();

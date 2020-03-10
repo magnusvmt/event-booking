@@ -1,30 +1,3 @@
-const { buildSchema } = require('graphql');
-const { graphql, GraphQLSchema, GraphQLObjectType, GraphQLID, GraphQLString, GraphQLFloat, GraphQLDate} = require('graphql');
-
-/* module.exports = new GraphQLSchema({
-  query: new GraphQLObjectType({
-    name: 'Event',
-    fields: () => ({
-      _id: {
-        type: GraphQLID
-      },
-      title: {
-        type: GraphQLString
-      },
-      description: {
-        type: GraphQLString
-      },
-      price: {
-        type: GraphQLFloat
-      },
-      date: {
-        type: GraphQLDate,
-      },
-    }
-    )
-  })
-}); */
-
 const typeDefs = `
 type Event {
     _id: ID!
