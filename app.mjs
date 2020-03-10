@@ -1,17 +1,17 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const graphqlHttp = require('express-graphql');
-const mongoose = require('mongoose');
-const { makeExecutableSchema } = require('graphql-tools');
+import express from 'express';
+import bodyParser from 'body-parser';
+import graphqlHttp from 'express-graphql';
+import mongoose from 'mongoose';
+import graphqlTools from 'graphql-tools'
 
-const typeDefs = require('./graphql/schema');
-const resolvers = require('./graphql/resolvers');
+import typeDefs from './graphql/schema.mjs';
+import resolvers from './graphql/resolvers.mjs';
 
 const app = express();
 
 app.use(bodyParser.json());
 
-
+const { makeExecutableSchema } = graphqlTools;
 const graphQlSchema = makeExecutableSchema({
     typeDefs,
     resolvers,

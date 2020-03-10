@@ -1,6 +1,6 @@
-const Event = require('../models/events');
-const User = require('../models/user');
-const bcrypt = require('bcryptjs')
+import Event from '../models/events.mjs';
+import User from '../models/user.mjs';
+import bcrypt from 'bcryptjs';
 
 const resolvers = {
     Query: {
@@ -68,4 +68,4 @@ const resolvers = {
     }
 };
 
-module.exports = resolvers;
+export default resolvers;
